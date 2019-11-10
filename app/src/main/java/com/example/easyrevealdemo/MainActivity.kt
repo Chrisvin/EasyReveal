@@ -12,8 +12,8 @@ class MainActivity : AppCompatActivity() {
 
         revealLayout.setOnClickListener {
             if (flag) {
-//                revealLayout.hide()
-                revealLayout.revealForPercentage(50f)
+                revealLayout.hide()
+//                revealLayout.revealForPercentage(50f)
             } else {
                 revealLayout.reveal()
             }
