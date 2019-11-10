@@ -17,6 +17,12 @@ class EasyRevealLinearLayout: LinearLayout, RevealLayout {
     private var path: Path? = null
     // ClipPathProvider provides the aforementioned path used for clipping
     var clipPathProvider: ClipPathProvider = CircularClipPathProvider()
+    // Animator used for animating the reveal/hide animations
+    private val revealAnimator: ValueAnimator = ValueAnimator()
+    // Reveal animation duration
+    var revealAnimationDuration: Long = 1000
+    // Hide animation duration
+    var hideAnimationDuration: Long = 1000
 
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
@@ -47,23 +53,33 @@ class EasyRevealLinearLayout: LinearLayout, RevealLayout {
     }
 
     override fun reveal() {
-        val valueAnimator = ValueAnimator.ofFloat(0f, 100f)
-        valueAnimator.addUpdateListener {
+        if (revealAnimator.isRunning) {
+            val temp = revealAnimator.animatedValue as Float
+            revealAnimator.setFloatValues(temp, 100f)
+        } else {
+            revealAnimator.setFloatValues(0f, 100f)
+        }
+        revealAnimator.addUpdateListener {
             path = clipPathProvider.getPath(it.animatedValue as Float, this@EasyRevealLinearLayout)
             invalidate()
         }
-        valueAnimator.duration = 2000
-        valueAnimator.start()
+        revealAnimator.duration = revealAnimationDuration
+        revealAnimator.start()
     }
 
     override fun hide() {
-        val valueAnimator = ValueAnimator.ofFloat(100f, 0f)
-        valueAnimator.addUpdateListener {
+        if (revealAnimator.isRunning) {
+            val temp = revealAnimator.animatedValue as Float
+            revealAnimator.setFloatValues(temp, 0f)
+        } else {
+            revealAnimator.setFloatValues(100f, 0f)
+        }
+        revealAnimator.addUpdateListener {
             path = clipPathProvider.getPath(it.animatedValue as Float, this@EasyRevealLinearLayout)
             invalidate()
         }
-        valueAnimator.duration = 2000
-        valueAnimator.start()
+        revealAnimator.duration = hideAnimationDuration
+        revealAnimator.start()
     }
 
     override fun revealForPercentage(percent: Float) {
