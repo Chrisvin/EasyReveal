@@ -1,6 +1,5 @@
 package com.jem.easyreveal.layouts
 
-import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Path
@@ -44,19 +43,21 @@ class EasyRevealConstraintLayout : ConstraintLayout, RevealLayout {
         }
     }
 
-    override fun reveal(onUpdate: ((it: ValueAnimator) -> Unit)?) {
+    override fun reveal(onUpdate: ((percent: Float) -> Unit)?) {
         revealAnimatorManager.reveal(revealAnimationDuration) {
-            path = clipPathProvider.getPath(it.animatedValue as Float, this@EasyRevealConstraintLayout)
+            path =
+                clipPathProvider.getPath(it.animatedValue as Float, this@EasyRevealConstraintLayout)
             invalidate()
-            onUpdate?.invoke(it)
+            onUpdate?.invoke(it.animatedValue as Float)
         }
     }
 
-    override fun hide(onUpdate: ((it: ValueAnimator) -> Unit)?) {
+    override fun hide(onUpdate: ((percent: Float) -> Unit)?) {
         revealAnimatorManager.hide(hideAnimationDuration) {
-            path = clipPathProvider.getPath(it.animatedValue as Float, this@EasyRevealConstraintLayout)
+            path =
+                clipPathProvider.getPath(it.animatedValue as Float, this@EasyRevealConstraintLayout)
             invalidate()
-            onUpdate?.invoke(it)
+            onUpdate?.invoke(it.animatedValue as Float)
         }
     }
 
