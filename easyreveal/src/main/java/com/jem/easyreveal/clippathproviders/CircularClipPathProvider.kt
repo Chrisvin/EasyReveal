@@ -1,7 +1,6 @@
 package com.jem.easyreveal.clippathproviders
 
 import android.graphics.Path
-import android.util.Log
 import android.view.View
 import com.jem.easyreveal.ClipPathProvider
 import kotlin.math.sqrt
@@ -27,12 +26,13 @@ class CircularClipPathProvider() : ClipPathProvider() {
         path.rewind()
         // Determine circle radius by checking which corner is furthest from circle center
         val radius = maxOf(
-            getDistanceTo(0f,0f),
+            getDistanceTo(0f, 0f),
             getDistanceTo(0f, inView.height.toFloat()),
             maxOf(
                 getDistanceTo(inView.width.toFloat(), 0f),
-                getDistanceTo(inView.width.toFloat(), inView.height.toFloat()))
-            ) * (forPercentage/100)
+                getDistanceTo(inView.width.toFloat(), inView.height.toFloat())
+            )
+        ) * (forPercentage / 100)
         path.addCircle(x, y, radius, Path.Direction.CW)
         return path
     }
