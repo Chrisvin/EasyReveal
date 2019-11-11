@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.jem.easyreveal.ClipPathProvider
 import com.jem.easyreveal.clippathproviders.CircularClipPathProvider
 import com.jem.easyreveal.clippathproviders.LinearClipPathProvider
+import com.jem.easyreveal.clippathproviders.RandomLineClipPathProvider
 import com.jem.easyreveal.clippathproviders.SweepClipPathProvider
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -33,17 +34,26 @@ class MainActivity : AppCompatActivity() {
                     id: Long
                 ) {
                     revealLayout.clipPathProvider = clipPathProviderArrayList[position].apply {
-                        if (this is CircularClipPathProvider) {
-                            when (position) {
-                                4 -> setCircleCenter(revealLayout.width.toFloat()/2, revealLayout.height.toFloat()/2)
-                                5 -> setCircleCenter(revealLayout.width.toFloat()/2, 0f)
-                                6 -> setCircleCenter(0f, revealLayout.height.toFloat())
+                        when (this) {
+                            is CircularClipPathProvider -> {
+                                when (position) {
+                                    4 -> setCircleCenter(revealLayout.width.toFloat()/2, revealLayout.height.toFloat()/2)
+                                    5 -> setCircleCenter(revealLayout.width.toFloat()/2, 0f)
+                                    6 -> setCircleCenter(0f, revealLayout.height.toFloat())
+                                }
                             }
-                        } else if (this is SweepClipPathProvider) {
-                            when (position) {
-                                7 -> setCircleCenter(revealLayout.width.toFloat()/2, revealLayout.height.toFloat()/2)
-                                8 -> setCircleCenter(revealLayout.width.toFloat()/2, revealLayout.height.toFloat())
-                                9 -> setCircleCenter(0f, 0f)
+                            is SweepClipPathProvider -> {
+                                when (position) {
+                                    7 -> setCircleCenter(revealLayout.width.toFloat()/2, revealLayout.height.toFloat()/2)
+                                    8 -> setCircleCenter(revealLayout.width.toFloat()/2, revealLayout.height.toFloat())
+                                    9 -> setCircleCenter(0f, 0f)
+                                }
+                            }
+                            is RandomLineClipPathProvider -> {
+                                when (position) {
+                                    10 -> lineOrientation = RandomLineClipPathProvider.LineOrientation.VERTICAL
+                                    11 -> lineOrientation = RandomLineClipPathProvider.LineOrientation.HORIZONTAL
+                                }
                             }
                         }
                     }
@@ -73,6 +83,8 @@ class MainActivity : AppCompatActivity() {
         CircularClipPathProvider(),
         SweepClipPathProvider(),
         SweepClipPathProvider(),
-        SweepClipPathProvider()
+        SweepClipPathProvider(),
+        RandomLineClipPathProvider(),
+        RandomLineClipPathProvider()
     )
 }

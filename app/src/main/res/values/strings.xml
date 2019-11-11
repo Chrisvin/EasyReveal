@@ -11,5 +11,7 @@
         <item>Sweep Reveal (CENTER)</item>
         <item>Sweep Reveal (EDGE)</item>
         <item>Sweep Reveal (CORNER)</item>
+        <item>Random Lines Reveal (VERTICAL)</item>
+        <item>Random Lines Reveal (HORIZONTAL)</item>
     </string-array>
 </resources>
