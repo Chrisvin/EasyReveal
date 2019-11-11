@@ -8,7 +8,7 @@ import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.math.sqrt
 
-class SwipeClipPathProvider() : ClipPathProvider() {
+class SweepClipPathProvider() : ClipPathProvider() {
     private var x: Float = 0f
     private var y: Float = 0f
 
