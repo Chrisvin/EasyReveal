@@ -4,12 +4,16 @@ import android.graphics.Path
 import android.view.View
 import com.jem.easyreveal.ClipPathProvider
 
-class LinearClipPathProvider : ClipPathProvider() {
+class LinearClipPathProvider() : ClipPathProvider() {
     enum class Direction {
         LEFT_TO_RIGHT, RIGHT_TO_LEFT, TOP_TO_BOTTOM, BOTTOM_TO_TOP
     }
 
     var direction: Direction = Direction.LEFT_TO_RIGHT
+
+    constructor(direction: Direction) : this() {
+        this.direction = direction
+    }
 
     override fun getPath(forPercentage: Float, inView: View): Path {
         path.rewind()
