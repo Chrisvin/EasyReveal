@@ -6,14 +6,14 @@ import android.graphics.Canvas
 import android.graphics.Path
 import android.os.Build
 import android.util.AttributeSet
-import android.widget.LinearLayout
+import android.widget.FrameLayout
 import androidx.annotation.RequiresApi
 import com.jem.easyreveal.ClipPathProvider
 import com.jem.easyreveal.RevealAnimatorManager
 import com.jem.easyreveal.RevealLayout
 import com.jem.easyreveal.clippathproviders.LinearClipPathProvider
 
-class EasyRevealLinearLayout : LinearLayout, RevealLayout {
+class EasyRevealFrameLayout : FrameLayout, RevealLayout {
     // Store path in local variable rather then getting it from ClipPathProvider each time
     private var path: Path? = null
     // ClipPathProvider provides the aforementioned path used for clipping
@@ -25,9 +25,9 @@ class EasyRevealLinearLayout : LinearLayout, RevealLayout {
     // Hide animation duration
     var hideAnimationDuration: Long = 1000
 
-    constructor(context: Context?) : super(context)
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
         context,
         attrs,
         defStyleAttr
@@ -35,7 +35,7 @@ class EasyRevealLinearLayout : LinearLayout, RevealLayout {
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     constructor(
-        context: Context?,
+        context: Context,
         attrs: AttributeSet?,
         defStyleAttr: Int,
         defStyleRes: Int
@@ -55,7 +55,7 @@ class EasyRevealLinearLayout : LinearLayout, RevealLayout {
 
     override fun reveal(onUpdate: ((it: ValueAnimator) -> Unit)?) {
         revealAnimatorManager.reveal(revealAnimationDuration) {
-            path = clipPathProvider.getPath(it.animatedValue as Float, this@EasyRevealLinearLayout)
+            path = clipPathProvider.getPath(it.animatedValue as Float, this@EasyRevealFrameLayout)
             invalidate()
             onUpdate?.invoke(it)
         }
@@ -63,14 +63,14 @@ class EasyRevealLinearLayout : LinearLayout, RevealLayout {
 
     override fun hide(onUpdate: ((it: ValueAnimator) -> Unit)?) {
         revealAnimatorManager.hide(hideAnimationDuration) {
-            path = clipPathProvider.getPath(it.animatedValue as Float, this@EasyRevealLinearLayout)
+            path = clipPathProvider.getPath(it.animatedValue as Float, this@EasyRevealFrameLayout)
             invalidate()
             onUpdate?.invoke(it)
         }
     }
 
     override fun revealForPercentage(percent: Float) {
-        path = clipPathProvider.getPath(percent, this@EasyRevealLinearLayout)
+        path = clipPathProvider.getPath(percent, this@EasyRevealFrameLayout)
         invalidate()
     }
 }
