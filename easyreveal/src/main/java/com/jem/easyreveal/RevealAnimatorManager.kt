@@ -2,7 +2,7 @@ package com.jem.easyreveal
 
 import android.animation.ValueAnimator
 
-class RevealAnimatorManager {
+internal class RevealAnimatorManager {
     // Animator used for animating the reveal/hide animations
     private val revealAnimator: ValueAnimator = ValueAnimator()
 

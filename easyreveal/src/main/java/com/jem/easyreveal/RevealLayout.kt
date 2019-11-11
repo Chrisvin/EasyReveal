@@ -1,6 +1,6 @@
 package com.jem.easyreveal
 
-interface RevealLayout {
+internal interface RevealLayout {
     // Used to perform reveal animation
     public fun reveal(): Unit
     // Used to perform hide animation
