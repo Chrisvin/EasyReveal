@@ -6,22 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Spinner
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/clipPathProvideSpinner"
+        />
+
     <com.jem.easyreveal.layouts.EasyRevealLinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:gravity="center"
         android:id="@+id/revealLayout"
         android:orientation="vertical"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@id/clipPathProvideSpinner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="Hello World!"
+            android:layout_weight="2"
+            android:text="Click to reveal/hide"
             android:textColor="#FFF"
-            android:textSize="48sp"
-            android:gravity="center"
+            android:textSize="42sp"
+            android:gravity="bottom|center_horizontal"
+            android:id="@+id/textView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -30,7 +43,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="5"
             android:src="@drawable/ic_android_white_128dp"/>
 
     </com.jem.easyreveal.layouts.EasyRevealLinearLayout>

@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">EasyRevealDemo</string>
+    <string-array name="clipPathProviderArray">
+        <item>Linear Reveal (LEFT_TO_RIGHT)</item>
+        <item>Linear Reveal (RIGHT_TO_LEFT)</item>
+        <item>Linear Reveal (TOP_TO_BOTTOM)</item>
+        <item>Linear Reveal (BOTTOM_TO_TOP)</item>
+        <item>Circular Reveal (CENTER)</item>
+        <item>Circular Reveal (EDGE)</item>
+        <item>Circular Reveal (CORNER)</item>
+        <item>Sweep Reveal (CENTER)</item>
+        <item>Sweep Reveal (EDGE)</item>
+        <item>Sweep Reveal (CORNER)</item>
+    </string-array>
 </resources>
