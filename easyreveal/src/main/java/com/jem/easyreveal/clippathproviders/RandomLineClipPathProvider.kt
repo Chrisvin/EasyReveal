@@ -4,13 +4,17 @@ import android.graphics.Path
 import android.view.View
 import com.jem.easyreveal.ClipPathProvider
 
-class RandomLineClipPathProvider : ClipPathProvider() {
+class RandomLineClipPathProvider() : ClipPathProvider() {
+
+    constructor(lineOrientation: LineOrientation = LineOrientation.HORIZONTAL) : this() {
+        this.lineOrientation = lineOrientation
+    }
 
     /**
      * Pseudo random lines, arraylist is directly used instead of getting true Random() values,
      * to prevent any delays during reveal/hide animation & also to enable smooth recovery during animation swapping.
      */
-    var randomLineArray = arrayListOf(56, 10, 11, 85, 46, 5, 94, 48, 55, 98, 73, 36, 30, 80, 78, 22, 47, 13, 68, 7, 50, 54, 67, 1, 42, 39, 40, 24, 61, 76, 53, 62, 82, 60, 97, 51, 92, 34, 29, 21, 100, 58, 69, 14, 4, 18, 19, 31, 8, 6, 23, 96, 9, 12, 70, 3, 17, 66, 28, 99, 89, 81, 91, 65, 32, 15, 63, 84, 72, 44, 77, 86, 26, 33, 41, 79, 88, 43, 74, 20, 90, 64, 49, 83, 27, 95, 93, 52, 75, 16, 37, 45, 25, 2, 59, 71, 57, 35, 87, 38)
+    var randomLineArray = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100).apply { shuffle() }
         set(value) {
             require(value.distinct().count() == 100 && value.all { it in 1..100 }) {"randomLineArray should be an Integer ArrayList of size 100 with values in the range [1,100]"}
             field = value
