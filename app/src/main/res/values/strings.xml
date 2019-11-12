@@ -8,13 +8,13 @@
         <item>Circular Reveal (CENTER)</item>
         <item>Circular Reveal (EDGE)</item>
         <item>Circular Reveal (CORNER)</item>
+        <item>Star Reveal (5 points)</item>
+        <item>Star Reveal (6 points)</item>
         <item>Sweep Reveal (CENTER)</item>
         <item>Sweep Reveal (EDGE)</item>
         <item>Sweep Reveal (CORNER)</item>
         <item>Random Lines Reveal (VERTICAL)</item>
         <item>Random Lines Reveal (HORIZONTAL)</item>
-        <item>Star Reveal (5 points)</item>
-        <item>Star Reveal (6 points)</item>
         <item>Custom Reveal</item>
     </string-array>
 </resources>

@@ -41,9 +41,9 @@ class MainActivity : AppCompatActivity() {
                             }
                             is SweepClipPathProvider -> {
                                 when (position) {
-                                    7 -> setCircleCenter(revealLayout.width.toFloat()/2, revealLayout.height.toFloat()/2)
-                                    8 -> setCircleCenter(revealLayout.width.toFloat()/2, revealLayout.height.toFloat())
-                                    9 -> setCircleCenter(0f, 0f)
+                                    9 -> setCircleCenter(revealLayout.width.toFloat()/2, revealLayout.height.toFloat()/2)
+                                    10 -> setCircleCenter(revealLayout.width.toFloat()/2, revealLayout.height.toFloat())
+                                    11 -> setCircleCenter(0f, 0f)
                                 }
                             }
                         }
@@ -72,13 +72,13 @@ class MainActivity : AppCompatActivity() {
         CircularClipPathProvider(),
         CircularClipPathProvider(),
         CircularClipPathProvider(),
+        StarClipPathProvider(),
+        StarClipPathProvider(6),
         SweepClipPathProvider(),
         SweepClipPathProvider(),
         SweepClipPathProvider(),
         RandomLineClipPathProvider(RandomLineClipPathProvider.LineOrientation.VERTICAL),
         RandomLineClipPathProvider(lineOrientation = RandomLineClipPathProvider.LineOrientation.HORIZONTAL),
-        StarClipPathProvider(),
-        StarClipPathProvider(6),
         CustomClipPathProvider()
     )
 }
