@@ -1,12 +1,17 @@
 package com.jem.easyreveal
 
-internal interface RevealLayout {
+interface RevealLayout {
+    // ClipPathProvider provides the path used for clipping
+    var clipPathProvider: ClipPathProvider
+    // Reveal animation duration
+    var revealAnimationDuration: Long
+    // Hide animation duration
+    var hideAnimationDuration: Long
+
     // Used to perform reveal animation
-    public fun reveal(onUpdate: ((percent: Float) -> Unit)? = null): Unit
-
+    fun reveal(onUpdate: ((percent: Float) -> Unit)? = null): Unit
     // Used to perform hide animation
-    public fun hide(onUpdate: ((percent: Float) -> Unit)? = null): Unit
-
+    fun hide(onUpdate: ((percent: Float) -> Unit)? = null): Unit
     // Reveal view to specified reveal percentage
-    public fun revealForPercentage(percent: Float): Unit
+    fun revealForPercentage(percent: Float): Unit
 }

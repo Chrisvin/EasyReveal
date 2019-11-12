@@ -15,14 +15,29 @@ import com.jem.easyreveal.clippathproviders.LinearClipPathProvider
 class EasyRevealLinearLayout : LinearLayout, RevealLayout {
     // Store path in local variable rather then getting it from ClipPathProvider each time
     private var path: Path? = null
-    // ClipPathProvider provides the aforementioned path used for clipping
-    var clipPathProvider: ClipPathProvider = LinearClipPathProvider()
     // RevealAnimator is used to perform reveal/hide animation
     private val revealAnimatorManager: RevealAnimatorManager = RevealAnimatorManager()
-    // Reveal animation duration
-    var revealAnimationDuration: Long = 1000
-    // Hide animation duration
-    var hideAnimationDuration: Long = 1000
+
+    // Backing fields for RevealLayout variables
+    private var _clipPathProvider: ClipPathProvider = LinearClipPathProvider()
+    private var _revealAnimationDuration: Long = 1000
+    private var _hideAnimationDuration: Long = 1000
+
+    override var clipPathProvider: ClipPathProvider
+        get() = _clipPathProvider
+        set(value) {
+            _clipPathProvider = value
+        }
+    override var revealAnimationDuration: Long
+        get() = _revealAnimationDuration
+        set(value) {
+            _revealAnimationDuration = value
+        }
+    override var hideAnimationDuration: Long
+        get() = _hideAnimationDuration
+        set(value) {
+            _hideAnimationDuration = value
+        }
 
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
