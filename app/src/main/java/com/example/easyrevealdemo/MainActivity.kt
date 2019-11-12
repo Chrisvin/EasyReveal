@@ -7,11 +7,7 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.jem.easyreveal.ClipPathProvider
 import com.jem.easyreveal.RevealLayout
-import com.jem.easyreveal.clippathproviders.CircularClipPathProvider
-import com.jem.easyreveal.clippathproviders.LinearClipPathProvider
-import com.jem.easyreveal.clippathproviders.RandomLineClipPathProvider
-import com.jem.easyreveal.clippathproviders.SweepClipPathProvider
-import com.jem.easyreveal.layouts.EasyRevealLinearLayout
+import com.jem.easyreveal.clippathproviders.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -81,6 +77,8 @@ class MainActivity : AppCompatActivity() {
         SweepClipPathProvider(),
         SweepClipPathProvider(),
         RandomLineClipPathProvider(RandomLineClipPathProvider.LineOrientation.VERTICAL),
-        RandomLineClipPathProvider(lineOrientation = RandomLineClipPathProvider.LineOrientation.HORIZONTAL)
+        RandomLineClipPathProvider(lineOrientation = RandomLineClipPathProvider.LineOrientation.HORIZONTAL),
+        StarClipPathProvider(),
+        StarClipPathProvider(6)
     )
 }

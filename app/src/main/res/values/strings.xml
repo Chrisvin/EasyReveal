@@ -13,5 +13,7 @@
         <item>Sweep Reveal (CORNER)</item>
         <item>Random Lines Reveal (VERTICAL)</item>
         <item>Random Lines Reveal (HORIZONTAL)</item>
+        <item>Star Reveal (5 points)</item>
+        <item>Star Reveal (6 points)</item>
     </string-array>
 </resources>
