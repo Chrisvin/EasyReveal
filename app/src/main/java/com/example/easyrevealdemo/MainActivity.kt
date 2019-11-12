@@ -79,6 +79,8 @@ class MainActivity : AppCompatActivity() {
         SweepClipPathProvider(),
         RandomLineClipPathProvider(RandomLineClipPathProvider.LineOrientation.VERTICAL),
         RandomLineClipPathProvider(lineOrientation = RandomLineClipPathProvider.LineOrientation.HORIZONTAL),
+        WaveClipPathProvider(WaveClipPathProvider.Direction.BOTTOM_TO_TOP),
+        WaveClipPathProvider(WaveClipPathProvider.Direction.TOP_TO_BOTTOM),
         CustomClipPathProvider()
     )
 }
