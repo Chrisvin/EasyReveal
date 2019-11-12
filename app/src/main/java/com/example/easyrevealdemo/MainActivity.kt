@@ -6,10 +6,12 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.jem.easyreveal.ClipPathProvider
+import com.jem.easyreveal.RevealLayout
 import com.jem.easyreveal.clippathproviders.CircularClipPathProvider
 import com.jem.easyreveal.clippathproviders.LinearClipPathProvider
 import com.jem.easyreveal.clippathproviders.RandomLineClipPathProvider
 import com.jem.easyreveal.clippathproviders.SweepClipPathProvider
+import com.jem.easyreveal.layouts.EasyRevealLinearLayout
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -49,12 +51,6 @@ class MainActivity : AppCompatActivity() {
                                     9 -> setCircleCenter(0f, 0f)
                                 }
                             }
-                            is RandomLineClipPathProvider -> {
-                                when (position) {
-                                    10 -> lineOrientation = RandomLineClipPathProvider.LineOrientation.VERTICAL
-                                    11 -> lineOrientation = RandomLineClipPathProvider.LineOrientation.HORIZONTAL
-                                }
-                            }
                         }
                     }
                 }
@@ -84,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         SweepClipPathProvider(),
         SweepClipPathProvider(),
         SweepClipPathProvider(),
-        RandomLineClipPathProvider(),
-        RandomLineClipPathProvider()
+        RandomLineClipPathProvider(RandomLineClipPathProvider.LineOrientation.VERTICAL),
+        RandomLineClipPathProvider(lineOrientation = RandomLineClipPathProvider.LineOrientation.HORIZONTAL)
     )
 }
