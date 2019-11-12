@@ -15,5 +15,6 @@
         <item>Random Lines Reveal (HORIZONTAL)</item>
         <item>Star Reveal (5 points)</item>
         <item>Star Reveal (6 points)</item>
+        <item>Custom Reveal</item>
     </string-array>
 </resources>
