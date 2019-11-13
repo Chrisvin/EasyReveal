@@ -79,19 +79,18 @@ class EasyRevealLinearLayout : LinearLayout, RevealLayout {
         }
     }
 
-    override fun reveal(onUpdate: ((percent: Float) -> Unit)?) {
-        revealAnimatorManager.reveal(revealAnimationDuration) {
-            path = clipPathProvider.getPath(it.animatedValue as Float, this@EasyRevealLinearLayout)
-            invalidate()
-            onUpdate?.invoke(it.animatedValue as Float)
+    override fun reveal() {
+        revealAnimatorManager.animate(currentRevealPercent, 100f, revealAnimationDuration) {
+            updateView(it.animatedValue as Float)
         }
     }
 
-    override fun hide(onUpdate: ((percent: Float) -> Unit)?) {
-        revealAnimatorManager.hide(hideAnimationDuration) {
-            path = clipPathProvider.getPath(it.animatedValue as Float, this@EasyRevealLinearLayout)
-            invalidate()
-            onUpdate?.invoke(it.animatedValue as Float)
+    override fun hide() {
+        revealAnimatorManager.animate(currentRevealPercent, 0f, hideAnimationDuration) {
+            updateView(it.animatedValue as Float)
+        }
+    }
+
     override fun revealForPercentage(percent: Float, shouldAnimate: Boolean) {
         if (shouldAnimate) {
             revealAnimatorManager.animate(currentRevealPercent, percent, revealAnimationDuration) {
