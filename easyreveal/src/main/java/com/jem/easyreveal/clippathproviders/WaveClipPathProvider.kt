@@ -6,14 +6,18 @@ import com.jem.easyreveal.ClipPathProvider
 import kotlin.math.abs
 import kotlin.math.sin
 
+/**
+ * [ClipPathProvider] which provides Wave shaped paths which are flatter when **percent** is closer to 0 or 100,
+ * and are at max height when closer to 50.
+ */
 class WaveClipPathProvider() : ClipPathProvider() {
-    // Maximum height of waves
+    /** Maximum height of waves.*/
     var amplitude: Int = 30
-    // Frequency of waves, higher frequency == more waves
+    /** Frequency of waves, higher frequency == more waves */
     var frequency: Int = 45
-    // Speed at which waves 'move'
+    /** Speed at which waves 'move'. */
     var speed: Int = 20
-    // Wave fill direction
+    /** Wave reveal direction. */
     var direction: Direction = Direction.BOTTOM_TO_TOP
 
     constructor(
@@ -28,8 +32,18 @@ class WaveClipPathProvider() : ClipPathProvider() {
         this.speed = speed
     }
 
+    /**
+     * Direction in which reveal animation is performed.
+     */
     enum class Direction {
-        TOP_TO_BOTTOM, BOTTOM_TO_TOP
+        /**
+         * Reveal from the Top to the Bottom of the view.
+         */
+        TOP_TO_BOTTOM,
+        /**
+         * Reveal from the Bottom to the Top of the view.
+         */
+        BOTTOM_TO_TOP
     }
 
     override fun getPath(percent: Float, view: View): Path {

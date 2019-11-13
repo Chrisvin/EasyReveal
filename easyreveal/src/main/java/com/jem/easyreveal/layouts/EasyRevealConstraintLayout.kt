@@ -10,6 +10,9 @@ import com.jem.easyreveal.RevealAnimatorManager
 import com.jem.easyreveal.RevealLayout
 import com.jem.easyreveal.clippathproviders.LinearClipPathProvider
 
+/**
+ * `EasyRevealinearLayout` is a custom [ConstraintLayout] that implements [RevealLayout].
+ */
 class EasyRevealConstraintLayout : ConstraintLayout, RevealLayout {
     // Store path in local variable rather then getting it from ClipPathProvider each time
     private var path: Path? = null
@@ -57,7 +60,7 @@ class EasyRevealConstraintLayout : ConstraintLayout, RevealLayout {
         defStyleAttr
     )
 
-
+    @Suppress("KDocMissingDocumentation")
     override fun draw(canvas: Canvas?) {
         try {
             canvas?.save()

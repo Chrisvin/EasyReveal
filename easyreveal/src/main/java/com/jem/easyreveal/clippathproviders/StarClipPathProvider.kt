@@ -8,6 +8,9 @@ import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.math.sqrt
 
+/**
+ * [ClipPathProvider] which provides a Star shaped path.
+ */
 class StarClipPathProvider() : ClipPathProvider() {
     private var numberOfPoints: Int = 5
 
@@ -15,6 +18,9 @@ class StarClipPathProvider() : ClipPathProvider() {
         this.numberOfPoints = numberOfPoints
     }
 
+    /**
+     * Set the number of points in the star.
+     */
     public fun setNumberOfPoints(numberOfPoints: Int) {
         this.numberOfPoints = numberOfPoints
     }

@@ -6,7 +6,7 @@ import com.jem.easyreveal.ClipPathProvider
 import kotlin.math.sqrt
 
 /**
- * Used for Circular Reveal, x & y mark the circle center
+ * [ClipPathProvider] which provides Circular path.
  */
 class CircularClipPathProvider() : ClipPathProvider() {
     private var x: Float = 0f
@@ -17,6 +17,9 @@ class CircularClipPathProvider() : ClipPathProvider() {
         this.y = y
     }
 
+    /**
+     * Set the center of the circle where reveal animation will begin/end.
+     */
     public fun setCircleCenter(x: Float, y: Float) {
         this.x = x
         this.y = y

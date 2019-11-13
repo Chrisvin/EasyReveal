@@ -4,11 +4,35 @@ import android.graphics.Path
 import android.view.View
 import com.jem.easyreveal.ClipPathProvider
 
+/**
+ * [ClipPathProvider] which provides a Rectangular path used to clip the view in a singular direction.
+ */
 class LinearClipPathProvider() : ClipPathProvider() {
+    /**
+     * Direction of the reveal animation.
+     */
     enum class Direction {
-        LEFT_TO_RIGHT, RIGHT_TO_LEFT, TOP_TO_BOTTOM, BOTTOM_TO_TOP
+        /**
+         * Starts from the Left and proceeds to the Right of the view.
+         */
+        LEFT_TO_RIGHT,
+        /**
+         * Starts from the Right and proceeds to the Left of the view.
+         */
+        RIGHT_TO_LEFT,
+        /**
+         * Starts from the Top and proceeds to the Bottom of the view.
+         */
+        TOP_TO_BOTTOM,
+        /**
+         * Starts from the Bottom and proceeds to the Top of the view.
+         */
+        BOTTOM_TO_TOP
     }
 
+    /**
+     * Direction of the linear reveal.
+     */
     var direction: Direction = Direction.LEFT_TO_RIGHT
 
     constructor(direction: Direction) : this() {

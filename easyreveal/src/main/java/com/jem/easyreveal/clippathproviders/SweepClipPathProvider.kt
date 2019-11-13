@@ -8,6 +8,9 @@ import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.math.sqrt
 
+/**
+ * [ClipPathProvider] which provides a Sweep type path, which is basically a circular segment.
+ */
 class SweepClipPathProvider() : ClipPathProvider() {
     private var x: Float = 0f
     private var y: Float = 0f
@@ -17,6 +20,9 @@ class SweepClipPathProvider() : ClipPathProvider() {
         this.y = y
     }
 
+    /**
+     * Set center of the circle where the reveal animation will begin/end.
+     */
     public fun setCircleCenter(x: Float, y: Float) {
         this.x = x
         this.y = y

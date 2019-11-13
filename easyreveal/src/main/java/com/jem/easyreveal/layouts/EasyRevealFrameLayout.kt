@@ -12,6 +12,9 @@ import com.jem.easyreveal.RevealAnimatorManager
 import com.jem.easyreveal.RevealLayout
 import com.jem.easyreveal.clippathproviders.LinearClipPathProvider
 
+/**
+ * `EasyRevealinearLayout` is a custom [FrameLayout] that implements [RevealLayout].
+ */
 class EasyRevealFrameLayout : FrameLayout, RevealLayout {
     // Store path in local variable rather then getting it from ClipPathProvider each time
     private var path: Path? = null
@@ -67,6 +70,7 @@ class EasyRevealFrameLayout : FrameLayout, RevealLayout {
         defStyleRes: Int
     ) : super(context, attrs, defStyleAttr, defStyleRes)
 
+    @Suppress("KDocMissingDocumentation")
     override fun draw(canvas: Canvas?) {
         try {
             canvas?.save()

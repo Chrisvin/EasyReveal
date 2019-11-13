@@ -4,9 +4,12 @@ import android.animation.ValueAnimator
 import kotlin.math.abs
 
 internal class RevealAnimatorManager {
-    // Animator used for animating the reveal/hide animations
+    /** Animator used for animating the reveal/hide animations. */
     private val revealAnimator: ValueAnimator = ValueAnimator()
 
+    /**
+     * Performs reveal/hide animation.
+     */
     public fun animate(startPercent: Float, endPercent: Float, duration: Long, onUpdate: ((it: ValueAnimator) -> Unit)? = null) {
         if (revealAnimator.isRunning) {
             val temp = revealAnimator.animatedValue as Float
