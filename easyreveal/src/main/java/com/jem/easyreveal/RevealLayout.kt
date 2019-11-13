@@ -13,11 +13,11 @@ interface RevealLayout {
     var onUpdateListener: RevealLayout.OnUpdateListener?
 
     // Used to perform reveal animation
-    fun reveal(onUpdate: ((percent: Float) -> Unit)? = null): Unit
+    fun reveal(): Unit
     // Used to perform hide animation
-    fun hide(onUpdate: ((percent: Float) -> Unit)? = null): Unit
+    fun hide(): Unit
     // Reveal view to specified reveal percentage
-    fun revealForPercentage(percent: Float): Unit
+    fun revealForPercentage(percent: Float, shouldAnimate: Boolean): Unit
 
     interface OnUpdateListener {
         fun onUpdate(percent: Float)
