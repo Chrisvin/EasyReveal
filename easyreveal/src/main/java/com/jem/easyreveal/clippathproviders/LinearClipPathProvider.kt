@@ -15,35 +15,35 @@ class LinearClipPathProvider() : ClipPathProvider() {
         this.direction = direction
     }
 
-    override fun getPath(forPercentage: Float, inView: View): Path {
+    override fun getPath(percent: Float, view: View): Path {
         path.rewind()
         when (direction) {
             Direction.LEFT_TO_RIGHT -> path.addRect(
                 0f,
                 0f,
-                inView.width.toFloat() * (forPercentage / 100),
-                inView.height.toFloat(),
+                view.width.toFloat() * (percent / 100),
+                view.height.toFloat(),
                 Path.Direction.CW
             )
             Direction.RIGHT_TO_LEFT -> path.addRect(
-                inView.width.toFloat() - (inView.width.toFloat() * (forPercentage / 100)),
+                view.width.toFloat() - (view.width.toFloat() * (percent / 100)),
                 0f,
-                inView.width.toFloat(),
-                inView.height.toFloat(),
+                view.width.toFloat(),
+                view.height.toFloat(),
                 Path.Direction.CW
             )
             Direction.TOP_TO_BOTTOM -> path.addRect(
                 0f,
                 0f,
-                inView.width.toFloat(),
-                inView.height.toFloat() * (forPercentage / 100),
+                view.width.toFloat(),
+                view.height.toFloat() * (percent / 100),
                 Path.Direction.CW
             )
             Direction.BOTTOM_TO_TOP -> path.addRect(
                 0f,
-                inView.height.toFloat() - (inView.height.toFloat() * (forPercentage / 100)),
-                inView.width.toFloat(),
-                inView.height.toFloat(),
+                view.height.toFloat() - (view.height.toFloat() * (percent / 100)),
+                view.width.toFloat(),
+                view.height.toFloat(),
                 Path.Direction.CW
             )
         }

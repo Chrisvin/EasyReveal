@@ -26,20 +26,20 @@ class RandomLineClipPathProvider() : ClipPathProvider() {
         HORIZONTAL, VERTICAL
     }
 
-    override fun getPath(forPercentage: Float, inView: View): Path {
+    override fun getPath(percent: Float, view: View): Path {
         path.reset()
         var pos: Float
         when (lineOrientation) {
             LineOrientation.VERTICAL -> {
-                for(i in 0 until forPercentage.toInt()) {
+                for(i in 0 until percent.toInt()) {
                     pos = randomLineArray[i].toFloat() / 100
-                    path.addRect(inView.width.toFloat() * (pos - 0.01f), 0f, inView.width.toFloat() * pos, inView.height.toFloat(), Path.Direction.CW)
+                    path.addRect(view.width.toFloat() * (pos - 0.01f), 0f, view.width.toFloat() * pos, view.height.toFloat(), Path.Direction.CW)
                 }
             }
             LineOrientation.HORIZONTAL -> {
-                for(i in 0 until forPercentage.toInt()) {
+                for(i in 0 until percent.toInt()) {
                     pos = randomLineArray[i].toFloat() / 100
-                    path.addRect(0f, inView.height.toFloat() * (pos - 0.01f), inView.width.toFloat(), inView.height.toFloat() * pos, Path.Direction.CW)
+                    path.addRect(0f, view.height.toFloat() * (pos - 0.01f), view.width.toFloat(), view.height.toFloat() * pos, Path.Direction.CW)
                 }
             }
         }

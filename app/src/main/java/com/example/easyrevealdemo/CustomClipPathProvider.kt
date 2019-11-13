@@ -6,13 +6,13 @@ import com.jem.easyreveal.ClipPathProvider
 import kotlin.math.sqrt
 
 class CustomClipPathProvider : ClipPathProvider() {
-    override fun getPath(forPercentage: Float, inView: View): Path {
+    override fun getPath(percent: Float, view: View): Path {
         path.rewind()
-        val radius = getDistance(0f,0f,inView.width.toFloat() / 2, inView.height.toFloat() / 2) * (forPercentage/100)
+        val radius = getDistance(0f,0f,view.width.toFloat() / 2, view.height.toFloat() / 2) * (percent/100)
         path.addCircle(0f, 0f, radius, Path.Direction.CW)
-        path.addCircle(inView.width.toFloat(), 0f, radius, Path.Direction.CW)
-        path.addCircle(0f, inView.height.toFloat(), radius, Path.Direction.CW)
-        path.addCircle(inView.width.toFloat(), inView.height.toFloat(), radius, Path.Direction.CW)
+        path.addCircle(view.width.toFloat(), 0f, radius, Path.Direction.CW)
+        path.addCircle(0f, view.height.toFloat(), radius, Path.Direction.CW)
+        path.addCircle(view.width.toFloat(), view.height.toFloat(), radius, Path.Direction.CW)
         return path
     }
 

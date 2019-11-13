@@ -22,17 +22,17 @@ class CircularClipPathProvider() : ClipPathProvider() {
         this.y = y
     }
 
-    override fun getPath(forPercentage: Float, inView: View): Path {
+    override fun getPath(percent: Float, view: View): Path {
         path.rewind()
         // Determine circle radius by checking which corner is furthest from circle center
         val radius = maxOf(
             getDistanceTo(0f, 0f),
-            getDistanceTo(0f, inView.height.toFloat()),
+            getDistanceTo(0f, view.height.toFloat()),
             maxOf(
-                getDistanceTo(inView.width.toFloat(), 0f),
-                getDistanceTo(inView.width.toFloat(), inView.height.toFloat())
+                getDistanceTo(view.width.toFloat(), 0f),
+                getDistanceTo(view.width.toFloat(), view.height.toFloat())
             )
-        ) * (forPercentage / 100)
+        ) * (percent / 100)
         path.addCircle(x, y, radius, Path.Direction.CW)
         return path
     }
