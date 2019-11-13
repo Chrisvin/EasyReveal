@@ -7,6 +7,10 @@ interface RevealLayout {
     var revealAnimationDuration: Long
     // Hide animation duration
     var hideAnimationDuration: Long
+    // Percentage of the view currently revealed
+    var currentRevealPercent: Float
+    // Listener to get percent value updates when animating
+    var onUpdateListener: RevealLayout.OnUpdateListener?
 
     // Used to perform reveal animation
     fun reveal(onUpdate: ((percent: Float) -> Unit)? = null): Unit
