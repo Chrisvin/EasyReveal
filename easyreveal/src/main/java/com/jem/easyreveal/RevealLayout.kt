@@ -14,4 +14,8 @@ interface RevealLayout {
     fun hide(onUpdate: ((percent: Float) -> Unit)? = null): Unit
     // Reveal view to specified reveal percentage
     fun revealForPercentage(percent: Float): Unit
+
+    interface OnUpdateListener {
+        fun onUpdate(percent: Float)
+    }
 }
