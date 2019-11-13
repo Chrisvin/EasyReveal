@@ -80,11 +80,20 @@ class EasyRevealLinearLayout : LinearLayout, RevealLayout {
             path = clipPathProvider.getPath(it.animatedValue as Float, this@EasyRevealLinearLayout)
             invalidate()
             onUpdate?.invoke(it.animatedValue as Float)
+    override fun revealForPercentage(percent: Float, shouldAnimate: Boolean) {
+        if (shouldAnimate) {
+            revealAnimatorManager.animate(currentRevealPercent, percent, revealAnimationDuration) {
+                updateView(it.animatedValue as Float)
+            }
+        } else {
+            updateView(percent)
         }
     }
 
-    override fun revealForPercentage(percent: Float) {
+    private fun updateView(percent: Float) {
+        _currentRevealPercent = percent
         path = clipPathProvider.getPath(percent, this@EasyRevealLinearLayout)
         invalidate()
+        onUpdateListener?.onUpdate(percent)
     }
 }
