@@ -15,5 +15,5 @@ abstract class ClipPathProvider {
             field = value
         }
 
-    abstract fun getPath(forPercentage: Float, inView: View): Path
+    abstract fun getPath(percent: Float, view: View): Path
 }
