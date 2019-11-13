@@ -20,6 +20,8 @@ class EasyRevealConstraintLayout : ConstraintLayout, RevealLayout {
     private var _clipPathProvider: ClipPathProvider = LinearClipPathProvider()
     private var _revealAnimationDuration: Long = 1000
     private var _hideAnimationDuration: Long = 1000
+    private var _currentRevealPercent: Float = 100f
+    private var _onUpdateListener: RevealLayout.OnUpdateListener? = null
 
     override var clipPathProvider: ClipPathProvider
         get() = _clipPathProvider
@@ -35,6 +37,16 @@ class EasyRevealConstraintLayout : ConstraintLayout, RevealLayout {
         get() = _hideAnimationDuration
         set(value) {
             _hideAnimationDuration = value
+        }
+    override var currentRevealPercent: Float
+        get() = _currentRevealPercent
+        set(value) {
+            updateView(value)
+        }
+    override var onUpdateListener: RevealLayout.OnUpdateListener?
+        get() = _onUpdateListener
+        set(value) {
+            _onUpdateListener = value
         }
 
     constructor(context: Context?) : super(context)
