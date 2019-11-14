@@ -8,9 +8,10 @@ import android.util.AttributeSet
 import android.widget.FrameLayout
 import androidx.annotation.RequiresApi
 import com.jem.easyreveal.ClipPathProvider
+import com.jem.easyreveal.R
 import com.jem.easyreveal.RevealAnimatorManager
 import com.jem.easyreveal.RevealLayout
-import com.jem.easyreveal.clippathproviders.LinearClipPathProvider
+import com.jem.easyreveal.clippathproviders.*
 
 /**
  * `EasyRevealinearLayout` is a custom [FrameLayout] that implements [RevealLayout].
@@ -39,12 +40,17 @@ class EasyRevealFrameLayout : FrameLayout, RevealLayout {
     override var onUpdateListener = _onUpdateListener
 
     constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        initialize(attrs)
+    }
+
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
         context,
         attrs,
         defStyleAttr
-    )
+    ) {
+        initialize(attrs)
+    }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     constructor(
@@ -52,7 +58,44 @@ class EasyRevealFrameLayout : FrameLayout, RevealLayout {
         attrs: AttributeSet?,
         defStyleAttr: Int,
         defStyleRes: Int
-    ) : super(context, attrs, defStyleAttr, defStyleRes)
+    ) : super(context, attrs, defStyleAttr, defStyleRes) {
+        initialize(attrs)
+    }
+
+    private fun initialize(attrs: AttributeSet?) {
+        attrs?.let {
+            val typedArray =
+                context.obtainStyledAttributes(it, R.styleable.EasyRevealFrameLayout, 0, 0)
+            typedArray.apply {
+                revealAnimationDuration = getInt(
+                    R.styleable.EasyRevealFrameLayout_revealAnimationDuration,
+                    1000
+                ).toLong()
+                hideAnimationDuration = getInt(
+                    R.styleable.EasyRevealFrameLayout_hideAnimationDuration,
+                    1000
+                ).toLong()
+                currentRevealPercent = getFloat(
+                    R.styleable.EasyRevealFrameLayout_startRevealPercent,
+                    100f
+                )
+                clipPathProvider =
+                    when (getInt(
+                        R.styleable.EasyRevealFrameLayout_clipPathProvider,
+                        1
+                    )) {
+                        0 -> CircularClipPathProvider()
+                        1 -> LinearClipPathProvider()
+                        2 -> RandomLineClipPathProvider()
+                        3 -> StarClipPathProvider()
+                        4 -> SweepClipPathProvider()
+                        5 -> WaveClipPathProvider()
+                        else -> LinearClipPathProvider()
+                    }
+            }
+            typedArray.recycle()
+        }
+    }
 
     /**
      * Overriden from View
