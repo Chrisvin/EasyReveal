@@ -60,7 +60,9 @@ class EasyRevealConstraintLayout : ConstraintLayout, RevealLayout {
         defStyleAttr
     )
 
-    @Suppress("KDocMissingDocumentation")
+    /**
+     * Overriden from View
+     */
     override fun draw(canvas: Canvas?) {
         try {
             canvas?.save()

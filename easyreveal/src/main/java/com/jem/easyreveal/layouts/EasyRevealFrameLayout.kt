@@ -70,7 +70,9 @@ class EasyRevealFrameLayout : FrameLayout, RevealLayout {
         defStyleRes: Int
     ) : super(context, attrs, defStyleAttr, defStyleRes)
 
-    @Suppress("KDocMissingDocumentation")
+    /**
+     * Overriden from View
+     */
     override fun draw(canvas: Canvas?) {
         try {
             canvas?.save()
