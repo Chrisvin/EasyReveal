@@ -21,9 +21,9 @@ class RandomLineClipPathProvider() : ClipPathProvider() {
      *
      * @exception IllegalArgumentException thrown when arrayList size is not 100 or when values are not in the range 1..100
      */
-    var randomLineArray = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100).apply { shuffle() }
+    var randomLineArrayList = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100).apply { shuffle() }
         set(value) {
-            require(value.distinct().count() == 100 && value.all { it in 1..100 }) {"randomLineArray should be an Integer ArrayList of size 100 with values in the range [1,100]"}
+            require(value.count() == 100 && value.all { it in 1..100 }) {"randomLineArray should be an Integer ArrayList of size 100 with values in the range [1,100]"}
             field = value
         }
 
@@ -52,13 +52,13 @@ class RandomLineClipPathProvider() : ClipPathProvider() {
         when (lineOrientation) {
             LineOrientation.VERTICAL -> {
                 for(i in 0 until percent.toInt()) {
-                    pos = randomLineArray[i].toFloat() / 100
+                    pos = randomLineArrayList[i].toFloat() / 100
                     path.addRect(view.width.toFloat() * (pos - 0.01f), 0f, view.width.toFloat() * pos, view.height.toFloat(), Path.Direction.CW)
                 }
             }
             LineOrientation.HORIZONTAL -> {
                 for(i in 0 until percent.toInt()) {
-                    pos = randomLineArray[i].toFloat() / 100
+                    pos = randomLineArrayList[i].toFloat() / 100
                     path.addRect(0f, view.height.toFloat() * (pos - 0.01f), view.width.toFloat(), view.height.toFloat() * pos, Path.Direction.CW)
                 }
             }
