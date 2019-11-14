@@ -1,0 +1,6 @@
+$dokka.format:gfm
+$dokka.linkExtension:md
+
+com.jem.easyreveal
+com.jem.easyreveal.clippathproviders
+com.jem.easyreveal.layouts
