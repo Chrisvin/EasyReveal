@@ -34,11 +34,7 @@ class EasyRevealConstraintLayout : ConstraintLayout, RevealLayout {
         set(value) {
             updateView(value)
         }
-    override var onUpdateListener: RevealLayout.OnUpdateListener?
-        get() = _onUpdateListener
-        set(value) {
-            _onUpdateListener = value
-        }
+    override var onUpdateListener = _onUpdateListener
 
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
