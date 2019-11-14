@@ -28,21 +28,9 @@ class EasyRevealLinearLayout : LinearLayout, RevealLayout {
     private var _currentRevealPercent: Float = 100f
     private var _onUpdateListener: RevealLayout.OnUpdateListener? = null
 
-    override var clipPathProvider: ClipPathProvider
-        get() = _clipPathProvider
-        set(value) {
-            _clipPathProvider = value
-        }
-    override var revealAnimationDuration: Long
-        get() = _revealAnimationDuration
-        set(value) {
-            _revealAnimationDuration = value
-        }
-    override var hideAnimationDuration: Long
-        get() = _hideAnimationDuration
-        set(value) {
-            _hideAnimationDuration = value
-        }
+    override var clipPathProvider = _clipPathProvider
+    override var revealAnimationDuration = _revealAnimationDuration
+    override var hideAnimationDuration = _hideAnimationDuration
     override var currentRevealPercent: Float
         get() = _currentRevealPercent
         set(value) {
