@@ -3,7 +3,6 @@
     <declare-styleable name="RevealLayout">
         <attr name="revealAnimationDuration" format="integer" />
         <attr name="hideAnimationDuration" format="integer" />
-        <attr name="startRevealPercent" format="float" />
         <attr name="clipPathProvider" format="enum" >
             <enum name="circular" value="0" />
             <enum name="linear" value="1" />
@@ -17,19 +16,16 @@
     <declare-styleable name="EasyRevealLinearLayout" parent="RevealLayout">
         <attr name="revealAnimationDuration"/>
         <attr name="hideAnimationDuration"/>
-        <attr name="startRevealPercent"/>
         <attr name="clipPathProvider"/>
     </declare-styleable>
     <declare-styleable name="EasyRevealConstraintLayout" parent="RevealLayout">
         <attr name="revealAnimationDuration"/>
         <attr name="hideAnimationDuration"/>
-        <attr name="startRevealPercent"/>
         <attr name="clipPathProvider"/>
     </declare-styleable>
     <declare-styleable name="EasyRevealFrameLayout" parent="RevealLayout">
         <attr name="revealAnimationDuration"/>
         <attr name="hideAnimationDuration"/>
-        <attr name="startRevealPercent"/>
         <attr name="clipPathProvider"/>
     </declare-styleable>
 </resources>
