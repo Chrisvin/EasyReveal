@@ -67,18 +67,6 @@ class EasyRevealFrameLayout : FrameLayout, RevealLayout {
             val typedArray =
                 context.obtainStyledAttributes(it, R.styleable.EasyRevealFrameLayout, 0, 0)
             typedArray.apply {
-                revealAnimationDuration = getInt(
-                    R.styleable.EasyRevealFrameLayout_revealAnimationDuration,
-                    1000
-                ).toLong()
-                hideAnimationDuration = getInt(
-                    R.styleable.EasyRevealFrameLayout_hideAnimationDuration,
-                    1000
-                ).toLong()
-                currentRevealPercent = getFloat(
-                    R.styleable.EasyRevealFrameLayout_startRevealPercent,
-                    100f
-                )
                 clipPathProvider =
                     when (getInt(
                         R.styleable.EasyRevealFrameLayout_clipPathProvider,
@@ -92,6 +80,14 @@ class EasyRevealFrameLayout : FrameLayout, RevealLayout {
                         5 -> WaveClipPathProvider()
                         else -> LinearClipPathProvider()
                     }
+                revealAnimationDuration = getInt(
+                    R.styleable.EasyRevealFrameLayout_revealAnimationDuration,
+                    1000
+                ).toLong()
+                hideAnimationDuration = getInt(
+                    R.styleable.EasyRevealFrameLayout_hideAnimationDuration,
+                    1000
+                ).toLong()
             }
             typedArray.recycle()
         }
