@@ -15,6 +15,25 @@
         android:id="@+id/clipPathProvideSpinner"
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:background="@color/bottomView"
+        app:layout_constraintTop_toBottomOf="@id/clipPathProvideSpinner"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:text="Background View\n\n^_^"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:textColor="#FEF"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
     <com.jem.easyreveal.layouts.EasyRevealLinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
