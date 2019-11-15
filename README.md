@@ -27,14 +27,18 @@ To run the demo project, clone the repository and run it via Android Studio.
 </br>Download the demo apk from [releases](https://github.com/Chrisvin/EasyReveal/releases).
 
 ## Usage
-### Adding directly in layout.xml
+### Add RevealLayout in layout.xml
+The views that need to be revealed/hidden should be put inside the EasyReveal layouts.
+
 ```
 <com.jem.easyreveal.layouts.EasyRevealLinearLayout
     ...
     app:clipPathProvider="star" // possible values: circular, linear, random_line, star, sweep & wave
     app:revealAnimationDuration="2000"
     app:hideAnimationDuration="1500" >
+
     <!-- The views to be revealed/hidden go here -->
+
 </com.jem.easyreveal.layouts.EasyRevealLinearLayout>
 <!-- Similarly for com.jem.easyreveal.layouts.EasyRevealConstraintLayout & com.jem.easyreveal.layouts.EasyRevealFrameLayout -->
 ```
@@ -63,6 +67,8 @@ Note : [Dokka generated documentation on ClipPathProviders](https://chrisvin.git
 
 ## Creating custom reveals
 One of the core focuses of this library was extensibility. Creating your own reveal animation is as simple as extending [ClipPathProvider](https://chrisvin.github.io/EasyReveal/com.jem.easyreveal/-clip-path-provider/) and implementing the `getPath()` method. `getPath()` provides the [Path](https://developer.android.com/reference/android/graphics/Path) for a given *percent* value on the provided *view*.  The path gotten from `getPath()` is then used to clip the view using `canvas.clipPath(path, op)` (The `op` value is provided by the `ClipPathProvider` as well).
+
+For example, A simulataneous 4 corner circular reveal animation can be achieved as follows.
 
 ```kotlin
 class CustomClipPathProvider : ClipPathProvider() {
