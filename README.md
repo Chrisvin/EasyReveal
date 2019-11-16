@@ -3,6 +3,19 @@
 
  [![License: MIT](https://img.shields.io/badge/License-MIT-silver.svg)](https://opensource.org/licenses/MIT) [![](https://jitpack.io/v/Chrisvin/EasyReveal.svg)](https://jitpack.io/#Chrisvin/EasyReveal) [![API](https://img.shields.io/badge/API-19%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=19)
 
+<table>
+<tr>
+	<td><img src="./demo%20screenshots/star_reveal.gif"/></td>
+	<td><img src="./demo%20screenshots/linear_reveal.gif"/></td>
+	<td><img src="./demo%20screenshots/circular_reveal.gif"/></td>
+</tr>
+<tr>
+	<td><img src="./demo%20screenshots/random_line_reveal.gif"/></td>
+	<td><img src="./demo%20screenshots/wave_reveal.gif"/></td>
+	<td><img src="./demo%20screenshots/sweep_reveal.gif"/></td>
+</tr>
+</table>
+
 EasyReveal is an extensible reveal library that contains various reveal animations.
 
 ## Getting started
@@ -87,6 +100,8 @@ class CustomClipPathProvider : ClipPathProvider() {
     }
 }
 ```
+
+<img src="./demo%20screenshots/custom_reveal.gif"/>
 
 ## API Documentation
 
