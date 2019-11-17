@@ -16,7 +16,7 @@ import com.jem.easyreveal.clippathproviders.*
 /**
  * `EasyRevealinearLayout` is a custom [LinearLayout] that implements [RevealLayout].
  */
-class EasyRevealLinearLayout : LinearLayout, RevealLayout {
+open class EasyRevealLinearLayout : LinearLayout, RevealLayout {
     // Store path in local variable rather then getting it from ClipPathProvider each time
     private var path: Path? = null
     // RevealAnimator is used to perform reveal/hide animation
