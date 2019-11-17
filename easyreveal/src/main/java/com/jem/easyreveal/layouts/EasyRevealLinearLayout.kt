@@ -131,6 +131,7 @@ class EasyRevealLinearLayout : LinearLayout, RevealLayout {
     }
 
     private fun updateView(percent: Float) {
+        if (percent == _currentRevealPercent) return
         _currentRevealPercent = percent
         path = clipPathProvider.getPath(percent, this@EasyRevealLinearLayout)
         invalidate()
