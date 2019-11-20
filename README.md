@@ -16,7 +16,7 @@
 </tr>
 </table>
 
-EasyReveal is an extensible reveal library that contains various reveal animations. ([Demo apk](https://github.com/Chrisvin/EasyReveal/releases/download/1.1/EasyRevealDemo.apk))
+EasyReveal is an extensible reveal library that contains various reveal animations. ([Demo apk](https://github.com/Chrisvin/EasyReveal/releases/download/1.2/EasyRevealDemo.apk))
 
 ## Getting started
 ### Setting up the dependency
@@ -31,7 +31,7 @@ allprojects {
 ```
 2. Add the EasyReveal dependency in the build.gradle:
 ```
-implementation 'com.github.Chrisvin:EasyReveal:1.0'
+implementation 'com.github.Chrisvin:EasyReveal:1.2'
 ```
 
 ### Demo app
