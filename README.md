@@ -111,7 +111,7 @@ Documentation generated using Dokka : [chrisvin.github.io/EasyReveal](https://ch
 **No**, infact, EasyReveal was a library that I created since I needed (but was unable to find) an extensible library for view clipping.
 Hence, the true form of EasyReveal is infact a view clipping library, who's most obvious usecase is designing customizable reveal animations.
 
-The first version of [LiquidSwipe](https://github.com/Chrisvin/LiquidSwipe) used EasyReveal as a dependency. If you like this library, you will probably love [LiquidSwipe](https://github.com/Chrisvin/LiquidSwipe).
+The first version of [LiquidSwipe](https://github.com/Chrisvin/LiquidSwipe) used EasyReveal as a dependency. If you like this library, you will probably love [LiquidSwipe](https://github.com/Chrisvin/LiquidSwipe) and [ConcentricOnboarding](https://github.com/Chrisvin/ConcentricOnboarding).
 
 ## Bugs and Feedback
 For bugs, questions and discussions please use the [Github Issues](https://github.com/Chrisvin/EasyReveal/issues).
