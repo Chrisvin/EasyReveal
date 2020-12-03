@@ -10,12 +10,13 @@ import android.view.View
 abstract class ClipPathProvider {
     /** Path variable that should be used to make the path to be returned in [getPath] function.*/
     protected var path: Path = Path()
+
     /**
      * Region.Op variable that is used in [android.graphics.Canvas.clipPath] in the EasyRevealLayouts
      * @throws IllegalArgumentException Will be thrown if values other than [Region.Op.INTERSECT] and
      * [Region.Op.DIFFERENCE] are provided when API level is greater than or equal to [Build.VERSION_CODES.P].
      */
-    var op: Region.Op = Region.Op.INTERSECT
+    var op: Op = Op.INTERSECT
         set(value) {
             require(!(Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && op != Op.INTERSECT && op != Op.DIFFERENCE)) { "Invalid Region.Op - only INTERSECT and DIFFERENCE are allowed" }
             field = value

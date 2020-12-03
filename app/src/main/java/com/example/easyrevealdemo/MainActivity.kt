@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private var flag = true
-    private val clipPathProviderArrayList = arrayListOf<ClipPathProvider>(
+    private val clipPathProviderArrayList = arrayListOf(
         LinearClipPathProvider(LinearClipPathProvider.Direction.LEFT_TO_RIGHT),
         LinearClipPathProvider(LinearClipPathProvider.Direction.RIGHT_TO_LEFT),
         LinearClipPathProvider(LinearClipPathProvider.Direction.TOP_TO_BOTTOM),

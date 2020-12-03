@@ -23,7 +23,7 @@ class SweepClipPathProvider() : ClipPathProvider() {
     /**
      * Set center of the circle where the reveal animation will begin/end.
      */
-    public fun setCircleCenter(x: Float, y: Float) {
+    fun setCircleCenter(x: Float, y: Float) {
         this.x = x
         this.y = y
     }

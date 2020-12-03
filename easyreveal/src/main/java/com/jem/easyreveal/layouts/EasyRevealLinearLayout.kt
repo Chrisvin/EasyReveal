@@ -14,7 +14,7 @@ import com.jem.easyreveal.RevealLayout
 import com.jem.easyreveal.clippathproviders.*
 
 /**
- * `EasyRevealinearLayout` is a custom [LinearLayout] that implements [RevealLayout].
+ * `EasyRevealLinearLayout` is a custom [LinearLayout] that implements [RevealLayout].
  */
 open class EasyRevealLinearLayout : LinearLayout, RevealLayout {
     // Store path in local variable rather then getting it from ClipPathProvider each time
@@ -94,7 +94,7 @@ open class EasyRevealLinearLayout : LinearLayout, RevealLayout {
     }
 
     /**
-     * Overriden from View
+     * Overridden from View
      */
     override fun draw(canvas: Canvas?) {
         try {
