@@ -16,7 +16,7 @@ class RandomLineClipPathProvider() : ClipPathProvider() {
     /**
      * [ArrayList] of random integers in the range 1..100
      *
-     * The idea is to have pseudo random lines, [Arraylist] is directly used instead of getting true Random() values,
+     * The idea is to have pseudo random lines, [ArrayList] is directly used instead of getting true Random() values,
      * to prevent any delays during reveal/hide animation & also to enable smooth recovery during animation swapping.
      *
      * @exception IllegalArgumentException thrown when arrayList size is not 100 or when values are not in the range 1..100

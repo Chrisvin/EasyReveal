@@ -20,7 +20,7 @@ class CircularClipPathProvider() : ClipPathProvider() {
     /**
      * Set the center of the circle where reveal animation will begin/end.
      */
-    public fun setCircleCenter(x: Float, y: Float) {
+    fun setCircleCenter(x: Float, y: Float) {
         this.x = x
         this.y = y
     }

@@ -21,7 +21,7 @@ class StarClipPathProvider() : ClipPathProvider() {
     /**
      * Set the number of points in the star.
      */
-    public fun setNumberOfPoints(numberOfPoints: Int) {
+    fun setNumberOfPoints(numberOfPoints: Int) {
         this.numberOfPoints = numberOfPoints
     }
 

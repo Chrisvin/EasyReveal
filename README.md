@@ -81,7 +81,7 @@ Note : [Dokka generated documentation on ClipPathProviders](https://chrisvin.git
 ## Creating custom reveals
 One of the core focuses of this library was extensibility. Creating your own reveal animation is as simple as extending [ClipPathProvider](https://chrisvin.github.io/EasyReveal/com.jem.easyreveal/-clip-path-provider/) and implementing the `getPath()` method. `getPath()` provides the [Path](https://developer.android.com/reference/android/graphics/Path) for a given *percent* value on the provided *view*.  The path gotten from `getPath()` is then used to clip the view using `canvas.clipPath(path, op)` (The `op` value is provided by the `ClipPathProvider` as well).
 
-For example, A simulataneous 4 corner circular reveal animation can be achieved as follows.
+For example, A simultaneous 4 corner circular reveal animation can be achieved as follows.
 
 ```kotlin
 class CustomClipPathProvider : ClipPathProvider() {

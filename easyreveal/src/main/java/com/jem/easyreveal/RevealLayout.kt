@@ -13,24 +13,24 @@ interface RevealLayout {
     /** Percentage of the view currently revealed. */
     var currentRevealPercent: Float
     /** Listener to get percent value updates when animating. */
-    var onUpdateListener: RevealLayout.OnUpdateListener?
+    var onUpdateListener: OnUpdateListener?
 
     /**
      * Used to perform reveal animation.
      */
-    fun reveal(): Unit
+    fun reveal()
 
     /**
      * Used to perform hide animation.
      */
-    fun hide(): Unit
+    fun hide()
 
     /**
      * Reveal view to specified reveal percentage.
      * @param percent value should be between 0 and 100 (inclusive).
      * @param shouldAnimate if true, then reveal/hide animation will be performed (based on percent value).
      */
-    fun revealForPercentage(percent: Float, shouldAnimate: Boolean): Unit
+    fun revealForPercentage(percent: Float, shouldAnimate: Boolean)
 
     /**
      * Interface definition for a callback to be invoked when current reveal percentage value is changed.

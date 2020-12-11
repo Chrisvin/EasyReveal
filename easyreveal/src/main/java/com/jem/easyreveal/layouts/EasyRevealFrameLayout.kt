@@ -14,11 +14,12 @@ import com.jem.easyreveal.RevealLayout
 import com.jem.easyreveal.clippathproviders.*
 
 /**
- * `EasyRevealinearLayout` is a custom [FrameLayout] that implements [RevealLayout].
+ * `EasyRevealLinearLayout` is a custom [FrameLayout] that implements [RevealLayout].
  */
 open class EasyRevealFrameLayout : FrameLayout, RevealLayout {
     // Store path in local variable rather then getting it from ClipPathProvider each time
     private var path: Path? = null
+
     // RevealAnimator is used to perform reveal/hide animation
     private val revealAnimatorManager: RevealAnimatorManager = RevealAnimatorManager()
 
@@ -94,7 +95,7 @@ open class EasyRevealFrameLayout : FrameLayout, RevealLayout {
     }
 
     /**
-     * Overriden from View
+     * Overridden from View
      */
     override fun draw(canvas: Canvas?) {
         try {
